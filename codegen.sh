@@ -50,10 +50,12 @@ run_if_exists "${scripts_dir}/process_spec.sh" "${PWD}/${spec_file}"
 
 generator_version=$(cat "${cfg_dir}/gen_version")
 
+echo "using openapi generator version ${generator_version}"
+
 docker run --user "$(id -u):$(id -g)" --rm -v $(pwd):/local --workdir /local \
 openapitools/openapi-generator-cli:${generator_version} generate \
 -v \
--i $spec \
+-i $spec_file \
 -g $lang \
 -o $out_dir \
 --git-user-id ${git_user_id} \
@@ -61,6 +63,7 @@ openapitools/openapi-generator-cli:${generator_version} generate \
 $cfg_flag \
 $templates_flag;
 
+rm ${spec_file}
 # after generate script hook
 
 # publish script hook
