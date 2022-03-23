@@ -31,7 +31,7 @@ cfg_dir="configs/${lang}"
 scripts_dir="configs/${lang}/scripts"
 
 git_user_id=wallet-ex
-git_repo_id=ergo-api-clients
+git_repo_id=rosetta-api-clients
 
 cfg_file="${cfg_dir}/config.yaml"
 cfg_flag="" && [[ -f $cfg_file ]] && cfg_flag="-c ${cfg_file}"
@@ -64,6 +64,9 @@ $cfg_flag \
 $templates_flag;
 
 rm ${spec_file}
-# after generate script hook
 
+rm ${out_dir}/git_push.sh
+
+# after generate script hook
+# build script hook
 # publish script hook

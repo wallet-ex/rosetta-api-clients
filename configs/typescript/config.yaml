@@ -1,1 +1,3 @@
-packageName: rosetta-api-client
+projectName: '@wallet-ex/rosetta-api-client'
+npmName: '@wallet-ex/rosetta-api-client'
+moduleName: rosettaApi
